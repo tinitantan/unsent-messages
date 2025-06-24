@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
+  const [hovered, setHovered] = useState(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 600);
@@ -46,14 +47,19 @@ function App() {
     borderBottom: "2px solid #201e1c",
   };
 
-  const [hovered, setHovered] = useState(null);
-
   const getLinkStyle = (isActive, index) => {
     let style = { ...baseLinkStyle };
     if (isActive) style = { ...style, ...activeLinkStyle };
     else if (hovered === index) style = { ...style, ...hoverLinkStyle };
     return style;
   };
+
+  // Labels switch for mobile
+  const labels = isMobile
+    ? ["Home", "Send", "Search"]
+    : ["Home", "Send a Message", "Search the Archive"];
+
+  const paths = ["/", "/send", "/search"];
 
   return (
     <Router>
@@ -66,21 +72,18 @@ function App() {
         }}
       >
         <nav style={navStyle}>
-          {["Home", "Send a Message", "Search the Archive"].map((text, i) => {
-            const paths = ["/", "/send", "/search"];
-            return (
-              <NavLink
-                key={text}
-                to={paths[i]}
-                end={i === 0}
-                style={({ isActive }) => getLinkStyle(isActive, i)}
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(null)}
-              >
-                {text}
-              </NavLink>
-            );
-          })}
+          {labels.map((text, i) => (
+            <NavLink
+              key={text}
+              to={paths[i]}
+              end={i === 0}
+              style={({ isActive }) => getLinkStyle(isActive, i)}
+              onMouseEnter={() => setHovered(i)}
+              onMouseLeave={() => setHovered(null)}
+            >
+              {text}
+            </NavLink>
+          ))}
         </nav>
 
         <main style={{ flex: 1, padding: isMobile ? "1rem" : "1rem 2rem" }}>
