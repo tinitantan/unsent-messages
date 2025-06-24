@@ -75,7 +75,7 @@ export default function Home() {
       <div
         style={{
           width: bearWidth,
-          height: 400,
+          height: 350,
           border: "2px solid #b5c18e",
           backgroundColor: "#d3debc",
           borderRadius: 6,

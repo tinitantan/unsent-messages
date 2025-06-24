@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-do
 import SendMessage from "./pages/SendMessage";
 import SearchMessages from "./pages/SearchMessages";
 import Home from "./pages/Home";
+import { Navigate } from "react-router-dom";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false);
@@ -88,9 +89,10 @@ function App() {
 
         <main style={{ flex: 1, padding: isMobile ? "1rem" : "1rem 2rem" }}>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route index element={<Home />} />
             <Route path="/send" element={<SendMessage />} />
             <Route path="/search" element={<SearchMessages />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
 
