@@ -23,6 +23,7 @@ export default function SendMessage() {
   };
 
   return (
+    <div style={{ minHeight: "auto" }}>
     <form
       onSubmit={handleSubmit}
       style={{
@@ -116,5 +117,6 @@ export default function SendMessage() {
         {status}
       </p>
     </form>
+    </div>
   );
 }

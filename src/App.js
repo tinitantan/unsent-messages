@@ -96,7 +96,7 @@ function App() {
 
         <footer
           style={{
-            marginTop: "0.5rem",
+            marginTop: "0rem",
             marginBottom: "2rem",
             padding: 0,
             textAlign: "center",

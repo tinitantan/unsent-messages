@@ -18,15 +18,14 @@ export default function Home() {
   return (
     <div
       style={{
-        padding: isSmall ? "0" : "4rem 1rem",
+        padding: isSmall ? "0.5rem 1rem 0 1rem" : "1rem 1rem 0 1rem",
         margin: "0px auto 0", // center horizontally
         width: "100%",         // full width but excludes scrollbar
         maxWidth: "700px",     // max width for larger screens
         boxSizing: "border-box",
-        minHeight: "100vh",
+        minHeight: "auto",
         fontFamily: "Arial, sans-serif",
         color: "#201e1c",
-
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -80,7 +79,7 @@ export default function Home() {
           border: "2px solid #b5c18e",
           backgroundColor: "#d3debc",
           borderRadius: 6,
-          margin: "1.75rem auto 0",
+          margin: "0.5rem auto 0rem",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",

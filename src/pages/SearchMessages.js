@@ -82,6 +82,7 @@ export default function SearchMessages() {
           display: 'flex',
           flexDirection: 'column',
           gap: '1rem',
+          minHeight: "auto"
         }}
       >
         <h2
