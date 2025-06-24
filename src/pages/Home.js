@@ -18,14 +18,21 @@ export default function Home() {
   return (
     <div
       style={{
-        padding: isSmall ? "1rem 1rem 2rem" : "4rem",
-        textAlign: "center",
+        padding: isSmall ? "0" : "4rem 1rem",
+        margin: "0px auto 0", // center horizontally
+        width: "100%",         // full width but excludes scrollbar
+        maxWidth: "700px",     // max width for larger screens
+        boxSizing: "border-box",
+        minHeight: "100vh",
         fontFamily: "Arial, sans-serif",
         color: "#201e1c",
-        width: "90vw",
-        maxWidth: "700px",
-        minWidth: "320px",
-        margin: "0 auto",
+
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        textAlign: "center",
+
+        overflowX: "hidden",
       }}
     >
       <h1
@@ -33,8 +40,8 @@ export default function Home() {
           margin: 0,
           padding: 0,
           fontSize: isSmall ? "1.5rem" : "2rem",
-          // Remove any horizontal margins on small screen:
-          ...(isSmall ? {} : { marginRight: "50px" }),
+          marginRight: 0,
+          marginLeft: 0,
         }}
       >
         THE LOST LETTERBOX
@@ -43,10 +50,11 @@ export default function Home() {
       <p
         style={{
           margin: 0,
-          fontSize: isSmall ? "12px" : "14px",
+          fontSize: isSmall ? 12 : 14,
           fontWeight: 500,
-          // Remove horizontal margin on small screen:
-          ...(isSmall ? {} : { marginLeft: "50px" }),
+          marginRight: 0,
+          marginLeft: 0,
+          padding: 0,
         }}
       >
         Inspired by a little Christmas Candy Grams tradition. :)
@@ -54,9 +62,11 @@ export default function Home() {
 
       <p
         style={{
-          margin: "1.5rem 2rem",
-          fontSize: isSmall ? "14px" : "16px",
+          margin: isSmall ? "1.5rem 0" : "1.5rem 2rem",
+          fontSize: isSmall ? 14 : 16,
           maxWidth: "100%",
+          padding: 0,
+          boxSizing: "border-box",
         }}
       >
         Write secret messages to loved ones!{" "}
@@ -66,26 +76,29 @@ export default function Home() {
       <div
         style={{
           width: bearWidth,
-          height: '400px',
+          height: 400,
           border: "2px solid #b5c18e",
           backgroundColor: "#d3debc",
-          borderRadius: "6px",
+          borderRadius: 6,
           margin: "1.75rem auto 0",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          boxSizing: "border-box",
+          overflow: "hidden",
         }}
       >
         <div
           style={{
-            transform: "scale(1.5)",
+            transform: isSmall ? "scale(1)" : "scale(1.5)",
             transformOrigin: "center",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            marginRight: '50px',
+            marginRight: '60px',
             width: "auto",
             height: "auto",
+            boxSizing: "border-box",
           }}
         >
           <Bear />
