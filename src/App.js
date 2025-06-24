@@ -8,6 +8,7 @@ function App() {
   const navStyle = {
     display: 'flex',
     gap: '16px',
+    justifyContent: 'center',
     padding: '9px 24px',
     borderBottom: '2px solid #eee',
     backgroundColor: '#f9f9f9',
@@ -15,15 +16,16 @@ function App() {
   };
 
   const baseLinkStyle = {
-    display: 'inline', // 👈 Makes underline span only the text
+    display: 'inline',
     textDecoration: 'none',
     color: '#201e1c',
     fontWeight: '600',
     fontSize: '0.95rem',
-    padding: '0 6px',
+    padding: '4px 12px',
+    borderRadius: 0,
     textTransform: 'uppercase',
     transition: 'all 0.2s ease',
-    borderBottom: '1px solid transparent',
+    borderBottom: '2px solid transparent',
   };
 
   const hoverLinkStyle = {
@@ -40,29 +42,55 @@ function App() {
 
   return (
     <Router>
-      <nav style={navStyle}>
-        {['Home', 'Send Message', 'Search Messages'].map((text, i) => {
-          const paths = ['/', '/send', '/search'];
-          return (
-            <NavLink
-              key={text}
-              to={paths[i]}
-              end={i === 0}
-              style={({ isActive }) => getLinkStyle(isActive, i)}
-              onMouseEnter={() => setHovered(i)}
-              onMouseLeave={() => setHovered(null)}
-            >
-              {text}
-            </NavLink>
-          );
-        })}
-      </nav>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          minHeight: '100vh', // full viewport height
+          fontFamily: 'Arial, sans-serif',
+        }}
+      >
+        <nav style={navStyle}>
+          {['Home', 'Send a Message', 'Search the Archive'].map((text, i) => {
+            const paths = ['/', '/send', '/search'];
+            return (
+              <NavLink
+                key={text}
+                to={paths[i]}
+                end={i === 0}
+                style={({ isActive }) => getLinkStyle(isActive, i)}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
+              >
+                {text}
+              </NavLink>
+            );
+          })}
+        </nav>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/send" element={<SendMessage />} />
-        <Route path="/search" element={<SearchMessages />} />
-      </Routes>
+        {/* Main content grows to fill space */}
+        <main style={{ flex: 1, padding: '1rem 2rem' }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/send" element={<SendMessage />} />
+            <Route path="/search" element={<SearchMessages />} />
+          </Routes>
+        </main>
+
+        {/* Footer at bottom */}
+        <footer
+          style={{
+            marginTop: '0.5rem',
+            marginBottom: '2rem',
+            padding: '0',
+            textAlign: 'center',
+            fontSize: '0.9rem',
+            color: '#666',
+          }}
+        >
+          Made with love {'<3'}
+        </footer>
+      </div>
     </Router>
   );
 }
