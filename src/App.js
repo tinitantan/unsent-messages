@@ -8,7 +8,7 @@ function App() {
   const navStyle = {
     display: 'flex',
     gap: '16px',
-    padding: '12px 24px',
+    padding: '8px 24px',          // reduced vertical padding
     borderBottom: '2px solid #eee',
     backgroundColor: '#f9f9f9',
     fontFamily: 'Arial, sans-serif',
@@ -16,32 +16,26 @@ function App() {
 
   const baseLinkStyle = {
     textDecoration: 'none',
-    color: '#201e1c', // your custom color
+    color: '#201e1c',
     fontWeight: '600',
-    fontSize: '1.1rem',
-    padding: '8px 16px',
-    borderRadius: '5px',
+    fontSize: '0.9rem',           // smaller font size
+    padding: '4px 12px',          // less padding for smaller height
+    borderRadius: 0,              // no rounding on edges
     textTransform: 'uppercase',
     transition: 'all 0.2s ease',
     borderBottom: '2px solid transparent',
   };
 
-  const activeLinkStyle = {
-    color: '#fff',
-    backgroundColor: '#007bff',
-    borderBottom: '2px solid transparent',
-  };
-
   const hoverLinkStyle = {
-    borderBottom: '2px solid #201e1c', // underline slightly below text
+    borderBottom: '2px solid #201e1c', // flat underline on hover
   };
 
   const [hovered, setHovered] = useState(null);
 
   const getLinkStyle = (isActive, index) => {
+    // No active style at all as per request
     let style = { ...baseLinkStyle };
-    if (isActive) style = { ...style, ...activeLinkStyle };
-    if (hovered === index && !isActive) style = { ...style, ...hoverLinkStyle };
+    if (hovered === index) style = { ...style, ...hoverLinkStyle };
     return style;
   };
 
