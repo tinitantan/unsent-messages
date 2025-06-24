@@ -1,12 +1,9 @@
 export default function Home() {
     return (
       <div style={{ padding: '2rem', textAlign: 'center' }}>
-        <h1>Welcome to Unsent Messages</h1>
+        <h1>THE LOST LETTERBOX</h1>
         <p>
-          Secret messages that were never sent. 
-        </p>
-        <p>
-          Use the navigation links above to send or search messages.
+          Inspired by a little Christmas Candy Grams tradition we started, secret messages from loved ones!
         </p>
       </div>
     );
