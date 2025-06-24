@@ -8,7 +8,7 @@ function App() {
   const navStyle = {
     display: 'flex',
     gap: '16px',
-    padding: '8px 24px',          // reduced vertical padding
+    padding: '9px 24px',          // reduced vertical padding
     borderBottom: '2px solid #eee',
     backgroundColor: '#f9f9f9',
     fontFamily: 'Arial, sans-serif',
@@ -18,7 +18,7 @@ function App() {
     textDecoration: 'none',
     color: '#201e1c',
     fontWeight: '600',
-    fontSize: '0.9rem',           // smaller font size
+    fontSize: '0.95rem',           // smaller font size
     padding: '4px 12px',          // less padding for smaller height
     borderRadius: 0,              // no rounding on edges
     textTransform: 'uppercase',
@@ -27,7 +27,7 @@ function App() {
   };
 
   const hoverLinkStyle = {
-    borderBottom: '2px solid #201e1c', // flat underline on hover
+    borderBottom: '1px solid #201e1c', // flat underline on hover
   };
 
   const [hovered, setHovered] = useState(null);
